@@ -1,10 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Card = ({ brand }) => {
-  const { id, photo, brandName, shortDescription } = brand || {};
+
+  const { photo, brandName, shortDescription } = brand || {};
+
+  const [product, setProduct] = useState(null);
+
+console.log(product)
+
+
+  const handleDetails = (brandName) => {
+      setProduct(brandName)
+    };
 
   useEffect(() => {
     AOS.init();
@@ -43,8 +53,11 @@ const Card = ({ brand }) => {
                 <h3 className="text-white mb-2 font-serif">
                   {shortDescription}
                 </h3>
-                <Link to={`/item/${id}`}>
-                  <button className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 shadow-lg shadow-blue-600/50 text-white">
+                <Link to={`/item/${brandName}`}>
+                  <button
+                    onClick={() => handleDetails(brandName)}
+                    className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 shadow-lg shadow-blue-600/50 text-white"
+                  >
                     Details
                   </button>
                 </Link>

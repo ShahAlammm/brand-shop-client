@@ -8,6 +8,7 @@ import Login from "../Pages/LogIn/Login";
 import Register from "../Pages/Register/Register";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import Banner from "../Components/Header/Banner/Banner";
+import Card from "../Components/Card/Card";
 
 const Router = createBrowserRouter([
   {
@@ -37,8 +38,9 @@ const Router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/item/:id",
+        path: "/item/:brandName",
         element: <ViewDetails></ViewDetails>,
+        loader: () => fetch("http://localhost:7000/product"),
       },
     ],
   },

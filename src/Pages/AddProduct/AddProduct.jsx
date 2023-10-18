@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Swal from "sweetalert2";
 
 const AddProduct = () => {
@@ -12,7 +13,7 @@ const AddProduct = () => {
     const type = form.type.value;
     const price = form.price.value;
     const description = form.description.value;
-
+    const rating = form.rating.value;
 
     const newProduct = {
       name,
@@ -21,6 +22,7 @@ const AddProduct = () => {
       price,
       description,
       photo,
+      rating,
     };
 
     console.log(newProduct);
@@ -39,13 +41,20 @@ const AddProduct = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "Coffee Added Successfully",
+            text: "Product Added Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
+          form.reset();
         }
       });
   };
+  const [rating, setRating] = useState(3);
+
+  const handleRatingChange = (event) => {
+    setRating(parseInt(event.target.value, 10));
+  };
+
   return (
     <div className="bg-base-200 p-24 mt-10  font-bold font-serif">
       <h2 className="text-3xl font-extrabold">Add a Product</h2>
@@ -83,13 +92,21 @@ const AddProduct = () => {
             <label className="label">
               <span className="label-text">Brand Name</span>
             </label>
-            <label className="input-group">
-              <input
-                type="text"
+            <label>
+              <select
                 name="brandName"
-                placeholder="Brand Name"
-                className="input input-bordered input-primary w-full"
-              />
+                className="select select-bordered select-primary w-full"
+              >
+                <option value="" disabled selected>
+                  Select Brand
+                </option>
+                <option value="Apple">Apple</option>
+                <option value="Google">Google</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Sony">Sony</option>
+                <option value="Intel">Intel</option>
+                <option value="Asus">Asus</option>
+              </select>
             </label>
           </div>
         </div>
@@ -140,33 +157,19 @@ const AddProduct = () => {
               <span className="label-text">Rating</span>
             </label>
             <div className="rating">
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-                checked
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-            </div>
+          {[1, 2, 3, 4, 5].map((value) => (
+            <input
+              key={value}
+              type="radio"
+              name="rating"
+              className={`mask mask-star-2 bg-orange-400 ${
+                value === rating ? "checked" : ""
+              }`}
+              value={value}
+              onChange={handleRatingChange}
+            />
+          ))}
+        </div>
           </div>
         </div>
         <input
