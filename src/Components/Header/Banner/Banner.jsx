@@ -6,56 +6,50 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 const divStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundSize: "cover",
-    height: "800px",
-  };
-
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundSize: "cover",
+  height: "800px",
+};
 
 // const spanStyle = {
 //     padding: "20px",
 //     background: "#efefef",
 //     color: "#000000",}
 
-// const slideImages = [
-//     {
-//       url: "https://i.ibb.co/WVBh5Nb/banner-1.jpg",
-//       caption: "",
-//     },
-//     {
-//       url: "https://i.ibb.co/yNC4BH5/bann-3.jpg",
-//       caption: "",
-//     },
-//     {
-//       url: "https://i.ibb.co/GfDPKhg/ban-6.jpg",
-//       caption: "",
-//     },
-//     {
-//       url: "https://i.ibb.co/B2T1K0S/banner-3.webp",
-//       caption: "",
-//     },
-//     {
-//       url: "https://i.ibb.co/NSHQ9MT/banner-2.webp",
-//       caption: "",
-//     },
-//     {
-//       url: "https://i.ibb.co/1MVksDg/bann-4.jpg",
-//       caption: "",
-//     },
-//   ];
-
+const slideImages = [
+  {
+    url: "https://i.ibb.co/WVBh5Nb/banner-1.jpg",
+    caption: "",
+  },
+  {
+    url: "https://i.ibb.co/yNC4BH5/bann-3.jpg",
+    caption: "",
+  },
+  {
+    url: "https://i.ibb.co/GfDPKhg/ban-6.jpg",
+    caption: "",
+  },
+  {
+    url: "https://i.ibb.co/B2T1K0S/banner-3.webp",
+    caption: "",
+  },
+  {
+    url: "https://i.ibb.co/NSHQ9MT/banner-2.webp",
+    caption: "",
+  },
+  {
+    url: "https://i.ibb.co/1MVksDg/bann-4.jpg",
+    caption: "",
+  },
+];
 
 const Banner = () => {
-
-  const slideImages = useLoaderData([])
-  console.log(slideImages)
-
-    useEffect(() => {
-        AOS.init();
-        AOS.refresh();
-      }, []);
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <div>
       <div data-aos="fade-down" data-aos-duration="2000">

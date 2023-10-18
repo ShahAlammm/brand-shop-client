@@ -1,6 +1,6 @@
+import Swal from "sweetalert2";
+
 const AddProduct = () => {
-
-
   const handleAddProduct = (e) => {
     e.preventDefault();
 
@@ -11,28 +11,27 @@ const AddProduct = () => {
     const brandName = form.brandName.value;
     const type = form.type.value;
     const price = form.price.value;
-    const shortDescription = form.shortDescription.value;
-    const rating = form.rating.value;
+    const description = form.description.value;
 
-    const newCoffee = {
+
+    const newProduct = {
       name,
       brandName,
       type,
       price,
-      shortDescription,
-      rating,
+      description,
       photo,
     };
 
-    console.log(newCoffee);
+    console.log(newProduct);
 
     // send data to the server
-    fetch("", {
+    fetch("http://localhost:7000/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newCoffee),
+      body: JSON.stringify(newProduct),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -130,7 +129,7 @@ const AddProduct = () => {
             <label className="input-group">
               <input
                 type="text"
-                name="shortDetails"
+                name="description"
                 placeholder="Short Details"
                 className="input input-bordered input-primary w-full"
               />
@@ -170,7 +169,11 @@ const AddProduct = () => {
             </div>
           </div>
         </div>
-        <input type="submit" value="Add Product" className="btn text-white bg-blue-500 btn-block" />
+        <input
+          type="submit"
+          value="Add Product"
+          className="btn text-white bg-blue-500 btn-block"
+        />
       </form>
     </div>
   );
