@@ -1,8 +1,14 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AddProduct = () => {
-  const handleAddProduct = (e) => {
+const UpdateProduct = () => {
+  const product = useLoaderData();
+
+  const { _id, name, brandName, photo, rating, price, description, type } =
+    product || {};
+
+  const handleUpdateProduct = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -15,7 +21,7 @@ const AddProduct = () => {
     const description = form.description.value;
     const rating = form.rating.value;
 
-    const newProduct = {
+    const updateProduct = {
       name,
       brandName,
       type,
@@ -25,39 +31,38 @@ const AddProduct = () => {
       rating,
     };
 
-
     // send data to the server
-    fetch("http://localhost:7000/product", {
-      method: "POST",
+    fetch(`http://localhost:7000/product/${_id}`, {
+      method: "PuT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(updateProduct),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Product Added Successfully",
+            text: "Product Updated Successfully",
             icon: "success",
-            confirmButtonText: "Cool",
+            confirmButtonText: "OK",
           });
           form.reset();
         }
       });
   };
-  const [rating, setRating] = useState();
+  const [ratings, setRating] = useState(0);
 
   const handleRatingChange = (event) => {
     setRating(parseInt(event.target.value, 10));
   };
 
   return (
-    <div className="bg-base-200 p-24 lg:p-64  font-bold font-serif">
-      <h2 className="text-3xl font-extrabold">Add a Product</h2>
-      <form onSubmit={handleAddProduct}>
+    <div className="bg-base-200 p-24 lg:p-64   font-bold font-serif">
+      <h2 className="text-3xl font-extrabold">Update Product : {name}</h2>
+      <form onSubmit={handleUpdateProduct}>
         <div className="mb-8 ">
           <div className="form-control w-full">
             <label className="label">
@@ -67,6 +72,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="photo"
+                defaultValue={photo}
                 placeholder="Photo URL"
                 className="input input-bordered input-primary w-full"
               />
@@ -82,6 +88,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="name"
+                defaultValue={name}
                 placeholder="Product Name"
                 className="input input-bordered input-primary w-full"
               />
@@ -94,6 +101,7 @@ const AddProduct = () => {
             <label>
               <select
                 name="brandName"
+                defaultValue={brandName}
                 className="select select-bordered select-primary w-full"
               >
                 <option value="" disabled selected>
@@ -118,6 +126,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="type"
+                defaultValue={type}
                 placeholder="Type Name"
                 className="input input-bordered input-primary w-full"
               />
@@ -131,6 +140,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="price"
+                defaultValue={price}
                 placeholder="Product Price"
                 className="input input-bordered input-primary w-full"
               />
@@ -146,6 +156,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="description"
+                defaultValue={description}
                 placeholder="Short Details"
                 className="input input-bordered input-primary w-full"
               />
@@ -161,8 +172,9 @@ const AddProduct = () => {
                   key={value}
                   type="radio"
                   name="rating"
+                  defaultValue={rating}
                   className={`mask mask-star-2 bg-orange-400 ${
-                    value === rating ? "checked" : ""
+                    value === ratings ? "checked" : ""
                   }`}
                   value={value}
                   onChange={handleRatingChange}
@@ -173,7 +185,7 @@ const AddProduct = () => {
         </div>
         <input
           type="submit"
-          value="Add Product"
+          value="Update Product"
           className="btn text-white bg-blue-500 btn-block"
         />
       </form>
@@ -181,4 +193,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

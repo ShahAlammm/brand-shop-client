@@ -7,6 +7,8 @@ import MyCart from "../Pages/MyCart/MyCart";
 import Login from "../Pages/LogIn/Login";
 import Register from "../Pages/Register/Register";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import UpdateProduct from "../Components/UpdateProduct/UpdateProduct";
+import Details from "../Components/Details/Details";
 
 const Router = createBrowserRouter([
   {
@@ -17,10 +19,7 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () =>
-          fetch(
-            `https://brand-shop-server-assignment-10-jpqxudx4s-shah-alams-projects.vercel.app/users`
-          ),
+        loader: () => fetch(`http://localhost:7000/users`),
       },
       {
         path: "/addProduct",
@@ -39,13 +38,20 @@ const Router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/item/:brandName",
+        path: "/product/:brandName",
         element: <ViewDetails></ViewDetails>,
-        loader: () =>
-          fetch(
-            "https://brand-shop-server-assignment-10-jpqxudx4s-shah-alams-projects.vercel.app/product"
-          ),
+        loader: () => fetch("http://localhost:7000/product"),
       },
+      {
+        path:"/updateProduct/:id",
+        element:<UpdateProduct></UpdateProduct>,
+        loader:({params})=>fetch(`http://localhost:7000/product/${params.id}`)
+      },
+      {
+        path:'/details/:id',
+        element: <Details></Details>,
+        loader:({params})=>fetch(`http://localhost:7000/product/${params.id}`)
+      }
     ],
   },
 ]);
