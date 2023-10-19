@@ -28,13 +28,16 @@ const AddProduct = () => {
     console.log(newProduct);
 
     // send data to the server
-    fetch("http://localhost:7000/product", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      "https://brand-shop-server-assignment-10-jpqxudx4s-shah-alams-projects.vercel.app/product",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -157,19 +160,19 @@ const AddProduct = () => {
               <span className="label-text">Rating</span>
             </label>
             <div className="rating">
-          {[1, 2, 3, 4, 5].map((value) => (
-            <input
-              key={value}
-              type="radio"
-              name="rating"
-              className={`mask mask-star-2 bg-orange-400 ${
-                value === rating ? "checked" : ""
-              }`}
-              value={value}
-              onChange={handleRatingChange}
-            />
-          ))}
-        </div>
+              {[1, 2, 3, 4, 5].map((value) => (
+                <input
+                  key={value}
+                  type="radio"
+                  name="rating"
+                  className={`mask mask-star-2 bg-orange-400 ${
+                    value === rating ? "checked" : ""
+                  }`}
+                  value={value}
+                  onChange={handleRatingChange}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <input

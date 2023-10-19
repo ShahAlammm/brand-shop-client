@@ -86,9 +86,6 @@ const Register = () => {
                 >
                   Register
                 </button>
-                {/* <button className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 shadow-lg shadow-blue-600/50 text-white mt-4">
-                     Google
-                  </button> */}
               </div>
               <p className="mt-4">
                 Already have an account

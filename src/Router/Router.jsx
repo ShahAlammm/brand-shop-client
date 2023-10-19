@@ -7,8 +7,6 @@ import MyCart from "../Pages/MyCart/MyCart";
 import Login from "../Pages/LogIn/Login";
 import Register from "../Pages/Register/Register";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
-import Banner from "../Components/Header/Banner/Banner";
-import Card from "../Components/Card/Card";
 
 const Router = createBrowserRouter([
   {
@@ -19,7 +17,10 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`http://localhost:7000/users`),
+        loader: () =>
+          fetch(
+            `https://brand-shop-server-assignment-10-jpqxudx4s-shah-alams-projects.vercel.app/users`
+          ),
       },
       {
         path: "/addProduct",
@@ -40,7 +41,10 @@ const Router = createBrowserRouter([
       {
         path: "/item/:brandName",
         element: <ViewDetails></ViewDetails>,
-        loader: () => fetch("http://localhost:7000/product"),
+        loader: () =>
+          fetch(
+            "https://brand-shop-server-assignment-10-jpqxudx4s-shah-alams-projects.vercel.app/product"
+          ),
       },
     ],
   },
