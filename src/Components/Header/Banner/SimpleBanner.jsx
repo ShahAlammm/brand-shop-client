@@ -1,6 +1,5 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
@@ -13,47 +12,49 @@ const divStyle = {
 };
 
 // const spanStyle = {
-//     padding: "20px",
-//     background: "#efefef",
-//     color: "#000000",}
+//   padding: "20px",
+//   // background: "#efefef",
+//   color: "#000000",
+// };
 
-const slideImages = [
-  {
-    url: "https://i.ibb.co/WVBh5Nb/banner-1.jpg",
-    caption: "",
-  },
-  {
-    url: "https://i.ibb.co/yNC4BH5/bann-3.jpg",
-    caption: "",
-  },
-  {
-    url: "https://i.ibb.co/GfDPKhg/ban-6.jpg",
-    caption: "",
-  },
-];
-
-const SimpleBanner = () => {
+const SimpleBanner = ({ brandName }) => {
 
 
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+  const [slideImages, setSlideImages] = useState([]);
+
+const name = brandName;
+
+useEffect(()=>{
+
+  fetch("/public/image.json")
+  .then(res=>res.json())
+  .then(data=>{setSlideImages(data)})
+
+},[])
+
+
+
+  const filteredProducts = slideImages?.filter(
+    (image) => image?.brandName === name
+  );
+
 
   return (
     <div>
-      <div data-aos="fade-down" data-aos-duration="2000">
+      <div>
         <div className="slide-container">
           <Slide>
-            {slideImages.map((slideImage, index) => (
+            {filteredProducts.map((slideImage, index) => (
               <div key={index}>
                 <div
                   style={{
                     ...divStyle,
-                    backgroundImage: `url(${slideImage.url})`,
+                    backgroundImage: `url(${slideImage?.url})`,
                   }}
                 >
-                  {/* <span style={spanStyle}>{slideImage.caption}</span> */}
+                  {/* <span className="text-4xl" style={spanStyle}>
+                    {slideImage.caption}
+                  </span> */}
                 </div>
               </div>
             ))}

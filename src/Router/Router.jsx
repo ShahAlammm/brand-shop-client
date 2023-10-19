@@ -9,6 +9,9 @@ import Register from "../Pages/Register/Register";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import UpdateProduct from "../Components/UpdateProduct/UpdateProduct";
 import Details from "../Components/Details/Details";
+import SimpleBanner from "../Components/Header/Banner/SimpleBanner";
+
+
 
 const Router = createBrowserRouter([
   {
@@ -43,15 +46,17 @@ const Router = createBrowserRouter([
         loader: () => fetch("http://localhost:7000/product"),
       },
       {
-        path:"/updateProduct/:id",
-        element:<UpdateProduct></UpdateProduct>,
-        loader:({params})=>fetch(`http://localhost:7000/product/${params.id}`)
+        path: "/updateProduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:7000/product/${params.id}`),
       },
       {
-        path:'/details/:id',
+        path: "/details/:id",
         element: <Details></Details>,
-        loader:({params})=>fetch(`http://localhost:7000/product/${params.id}`)
-      }
+        loader: ({ params }) =>
+          fetch(`http://localhost:7000/product/${params.id}`),
+      },
     ],
   },
 ]);

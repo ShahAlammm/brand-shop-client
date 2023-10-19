@@ -4,6 +4,7 @@ import ProductCard from "../../Components/ProductCard/ProductCard";
 import { useState } from "react";
 
 const ViewDetails = () => {
+
   const loadProducts = useLoaderData();
 
   const [products, setProducts] = useState(loadProducts);
@@ -12,11 +13,16 @@ const ViewDetails = () => {
 
   const filteredProducts = products.filter(
     (product) => product.brandName === brandName
-  );
+    );
+
+
+    const bannerData = {
+      brandName: brandName,
+    };
 
   return (
     <div>
-      <SimpleBanner></SimpleBanner>
+      <SimpleBanner {...bannerData}></SimpleBanner>
       <div className="container grid items-center justify-center m-auto 2xl:grid-cols-2 gap-6 mt-8 ">
         {filteredProducts.map((product) => (
           <ProductCard

@@ -16,7 +16,7 @@ const Details = () => {
       localStorage.setItem("addToCard", JSON.stringify(addedProductArray));
       swal("Good job!", "Added product successfully!", "success");
     } else {
-      const isExists = addToCard.find((detail) => detail._id == _id);
+      const isExists = addToCard.find((detail) => detail._id === _id);
       if (!isExists) {
         addedProductArray.push(...addToCard, details);
         localStorage.setItem("addToCard", JSON.stringify(addedProductArray));
