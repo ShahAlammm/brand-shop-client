@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductCard = ({ product, products, setProducts }) => {
-
-
   const { _id, name, brandName, photo, rating, price, type } = product || {};
-
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -18,9 +15,12 @@ const ProductCard = ({ product, products, setProducts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:7000/product/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://brand-shop-server-assignment-10-587c2cayb-shah-alams-projects.vercel.app/product/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -33,8 +33,8 @@ const ProductCard = ({ product, products, setProducts }) => {
               const remaining = products.filter(
                 (newProduct) => newProduct._id !== _id
               );
-              console.log(remaining)
-                setProducts(remaining);
+              console.log(remaining);
+              setProducts(remaining);
             }
           });
       }

@@ -25,15 +25,17 @@ const AddProduct = () => {
       rating,
     };
 
-
     // send data to the server
-    fetch("http://localhost:7000/product", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      "https://brand-shop-server-assignment-10-587c2cayb-shah-alams-projects.vercel.app/product",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -157,13 +159,14 @@ const AddProduct = () => {
             </label>
             <div className="input-group text-xl">
               <input
-              className="w-1/12 h-10 text-xl"
+                className="w-1/12 h-10 text-xl"
                 type="number"
                 name="rating"
                 defaultValue={rating}
                 max={5}
                 min={0}
-                /><span>/ 5</span>
+              />
+              <span>/ 5</span>
             </div>
           </div>
         </div>

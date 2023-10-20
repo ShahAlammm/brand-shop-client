@@ -32,13 +32,16 @@ const UpdateProduct = () => {
     };
 
     // send data to the server
-    fetch(`http://localhost:7000/product/${_id}`, {
-      method: "PuT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateProduct),
-    })
+    fetch(
+      `https://brand-shop-server-assignment-10-587c2cayb-shah-alams-projects.vercel.app/product/${_id}`,
+      {
+        method: "PuT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -53,7 +56,6 @@ const UpdateProduct = () => {
         }
       });
   };
-
 
   return (
     <div className="bg-base-200 p-24 lg:p-64   font-bold font-serif">
@@ -164,7 +166,7 @@ const UpdateProduct = () => {
             </label>
             <div className="input-group">
               <input
-              className="w-1/2 h-10"
+                className="w-1/2 h-10"
                 type="number"
                 name="rating"
                 defaultValue={rating}
