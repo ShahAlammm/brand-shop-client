@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import Swal from "sweetalert2";
+
 import { AuthContext } from "../../Hook/Provider/AuthProvider";
+import swal from "sweetalert";
 
 
 
@@ -21,7 +22,7 @@ const {googleSignIn, signIn} = useContext(AuthContext);
   const handleGoogle = () => {
     googleSignIn().then((result) => {
       console.log(result.user);
-      Swal("Good job!", "Log In successfully!", "success");
+      swal("Good job!", "Log In successfully!", "success");
       navigate("/");
     });
   };
@@ -35,12 +36,12 @@ const {googleSignIn, signIn} = useContext(AuthContext);
           console.log(result.user);
           setEmail("");
           setPassword("");
-          Swal("Good job!", "Log In successfully!", "success");
+          swal("Good job!", "Log In successfully!", "success");
           navigate("/");
         })
         .catch((err) => {
           setError(err.massage);
-          Swal("Error!", "Log In failed! Provide valid information", "error");
+          swal("Error!", "Log In failed! Provide valid information", "error");
         });
     }
   };

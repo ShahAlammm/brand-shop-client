@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductCard = ({ product, products, setProducts }) => {
+
+
   const { _id, name, brandName, photo, rating, price, type } = product || {};
 
-  const handleDelete = (_id) => {
-    console.log(_id);
 
+  const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -32,7 +33,8 @@ const ProductCard = ({ product, products, setProducts }) => {
               const remaining = products.filter(
                 (newProduct) => newProduct._id !== _id
               );
-              setProducts(remaining);
+              console.log(remaining)
+                setProducts(remaining);
             }
           });
       }
@@ -65,25 +67,14 @@ const ProductCard = ({ product, products, setProducts }) => {
             </div>
           </div>
           <div className="rating mt-1">
-            {[1, 2, 3, 4, 5].map((value) => (
-              <label key={value} className="inline-flex items-center">
-                <input
-                  type="radio"
-                  name="rating"
-                  className={`mask mask-star-2 bg-orange-400`}
-                  value={value}
-                  checked={value === rating}
-                  readOnly
-                />
-              </label>
-            ))}
+            <p>Rating: {rating}/5</p>
           </div>
           <div className="card-actions justify-end">
             <Link to={`/updateProduct/${_id}`}>
               <button className="btn btn-primary">Update</button>
             </Link>
             <Link to={`/details/${_id}`}>
-            <button className="btn btn-primary">details</button>
+              <button className="btn btn-primary">details</button>
             </Link>
           </div>
         </div>

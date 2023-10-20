@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-
+import image from "../../../../public/simpleBanner.json";
 const divStyle = {
   display: "flex",
   alignItems: "center",
@@ -11,33 +10,16 @@ const divStyle = {
   height: "500px",
 };
 
-// const spanStyle = {
-//   padding: "20px",
-//   // background: "#efefef",
-//   color: "#000000",
-// };
-
 const SimpleBanner = ({ brandName }) => {
-
-
   const [slideImages, setSlideImages] = useState([]);
 
-const name = brandName;
+  useEffect(() => {
+    setSlideImages(image);
+  }, []);
 
-useEffect(()=>{
-
-  fetch("/public/image.json")
-  .then(res=>res.json())
-  .then(data=>{setSlideImages(data)})
-
-},[])
-
-
-
-  const filteredProducts = slideImages?.filter(
-    (image) => image?.brandName === name
+  const filteredProducts = slideImages.filter(
+    (image) => image.brandName === brandName
   );
-
 
   return (
     <div>
@@ -49,13 +31,9 @@ useEffect(()=>{
                 <div
                   style={{
                     ...divStyle,
-                    backgroundImage: `url(${slideImage?.url})`,
+                    backgroundImage: `url(${slideImage.url})`,
                   }}
-                >
-                  {/* <span className="text-4xl" style={spanStyle}>
-                    {slideImage.caption}
-                  </span> */}
-                </div>
+                ></div>
               </div>
             ))}
           </Slide>

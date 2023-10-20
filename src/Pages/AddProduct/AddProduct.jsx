@@ -155,19 +155,15 @@ const AddProduct = () => {
             <label className="label">
               <span className="label-text">Rating</span>
             </label>
-            <div className="rating">
-              {[1, 2, 3, 4, 5].map((value) => (
-                <input
-                  key={value}
-                  type="radio"
-                  name="rating"
-                  className={`mask mask-star-2 bg-orange-400 ${
-                    value === rating ? "checked" : ""
-                  }`}
-                  value={value}
-                  onChange={handleRatingChange}
-                />
-              ))}
+            <div className="input-group text-xl">
+              <input
+              className="w-1/12 h-10 text-xl"
+                type="number"
+                name="rating"
+                defaultValue={rating}
+                max={5}
+                min={0}
+                /><span>/ 5</span>
             </div>
           </div>
         </div>

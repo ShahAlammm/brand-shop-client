@@ -13,7 +13,7 @@ const MyCart = () => {
     if (addToCard) {
       setBooking(addToCard);
     } else {
-      setNoFound("No Data Found !");
+      setNoFound("No Product Added !");
     }
   }, []);
 

@@ -1,9 +1,10 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import bannerImage from '../../../../public/banner.json'
+
 
 const divStyle = {
   display: "flex",
@@ -18,35 +19,13 @@ const divStyle = {
 //     background: "#efefef",
 //     color: "#000000",}
 
-const slideImages = [
-  {
-    url: "https://i.ibb.co/WVBh5Nb/banner-1.jpg",
-    caption: "",
-  },
-  {
-    url: "https://i.ibb.co/yNC4BH5/bann-3.jpg",
-    caption: "",
-  },
-  {
-    url: "https://i.ibb.co/GfDPKhg/ban-6.jpg",
-    caption: "",
-  },
-  {
-    url: "https://i.ibb.co/B2T1K0S/banner-3.webp",
-    caption: "",
-  },
-  {
-    url: "https://i.ibb.co/NSHQ9MT/banner-2.webp",
-    caption: "",
-  },
-  {
-    url: "https://i.ibb.co/1MVksDg/bann-4.jpg",
-    caption: "",
-  },
-];
 
 const Banner = () => {
+
+  const [slideImages,setSlideImages] =useState([]);
+
   useEffect(() => {
+    setSlideImages(bannerImage)
     AOS.init();
     AOS.refresh();
   }, []);

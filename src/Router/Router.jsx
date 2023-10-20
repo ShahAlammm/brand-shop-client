@@ -10,6 +10,8 @@ import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import UpdateProduct from "../Components/UpdateProduct/UpdateProduct";
 import Details from "../Components/Details/Details";
 import SimpleBanner from "../Components/Header/Banner/SimpleBanner";
+import About from "../Pages/About/About";
+import Blog from "../Pages/Blog/Blog";
 
 
 
@@ -56,6 +58,14 @@ const Router = createBrowserRouter([
         element: <Details></Details>,
         loader: ({ params }) =>
           fetch(`http://localhost:7000/product/${params.id}`),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

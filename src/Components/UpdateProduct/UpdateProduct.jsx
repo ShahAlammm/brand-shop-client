@@ -53,11 +53,7 @@ const UpdateProduct = () => {
         }
       });
   };
-  const [ratings, setRating] = useState(0);
 
-  const handleRatingChange = (event) => {
-    setRating(parseInt(event.target.value, 10));
-  };
 
   return (
     <div className="bg-base-200 p-24 lg:p-64   font-bold font-serif">
@@ -166,20 +162,15 @@ const UpdateProduct = () => {
             <label className="label">
               <span className="label-text">Rating</span>
             </label>
-            <div className="rating">
-              {[1, 2, 3, 4, 5].map((value) => (
-                <input
-                  key={value}
-                  type="radio"
-                  name="rating"
-                  defaultValue={rating}
-                  className={`mask mask-star-2 bg-orange-400 ${
-                    value === ratings ? "checked" : ""
-                  }`}
-                  value={value}
-                  onChange={handleRatingChange}
-                />
-              ))}
+            <div className="input-group">
+              <input
+              className="w-1/2 h-10"
+                type="number"
+                name="rating"
+                defaultValue={rating}
+                max={5}
+                min={0}
+              />
             </div>
           </div>
         </div>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const AddedCard = ({item}) => {
 
     const { _id, photo, name, brandName, type, price } = item || {};
-    console.log(item)
 
   return (
     <div className="pt-20">
