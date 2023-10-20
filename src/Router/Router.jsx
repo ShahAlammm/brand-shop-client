@@ -9,11 +9,9 @@ import Register from "../Pages/Register/Register";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import UpdateProduct from "../Components/UpdateProduct/UpdateProduct";
 import Details from "../Components/Details/Details";
-import SimpleBanner from "../Components/Header/Banner/SimpleBanner";
 import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
-
-
+import PrivateRoute from "../Hook/PrivateRoute/PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -28,11 +26,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -44,28 +50,48 @@ const Router = createBrowserRouter([
       },
       {
         path: "/product/:brandName",
-        element: <ViewDetails></ViewDetails>,
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:7000/product"),
       },
       {
         path: "/updateProduct/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: (
+          <PrivateRoute>
+            <UpdateProduct></UpdateProduct>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:7000/product/${params.id}`),
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:7000/product/${params.id}`),
       },
       {
         path: "/about",
-        element: <About></About>,
+        element: (
+          <PrivateRoute>
+            <About></About>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blog",
-        element: <Blog></Blog>,
+        element: (
+          <PrivateRoute>
+            <Blog></Blog>
+          </PrivateRoute>
+        ),
       },
     ],
   },
