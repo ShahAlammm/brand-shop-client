@@ -7,7 +7,7 @@ const divStyle = {
   alignItems: "center",
   justifyContent: "center",
   backgroundSize: "cover",
-  height: "500px",
+  height: "800px",
 };
 
 const SimpleBanner = ({ brandName }) => {

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -33,7 +32,7 @@ const UpdateProduct = () => {
 
     // send data to the server
     fetch(
-      `https://brand-shop-server-assignment-10-587c2cayb-shah-alams-projects.vercel.app/product/${_id}`,
+      `https://brand-shop-server-assignment-10-pnrue04ia-shah-alams-projects.vercel.app/product/${_id}`,
       {
         method: "PuT",
         headers: {

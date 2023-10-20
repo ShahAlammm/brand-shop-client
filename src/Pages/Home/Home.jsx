@@ -10,11 +10,11 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="text-center mt-10 lg:mt-24">
+      <div className="container m-auto text-center mt-10 lg:mt-24 ">
         <h1 className="text-6xl font-serif font-extrabold bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-transparent">
           Your Trusted Brands
         </h1>
-        <p className="font-serif font-bold mt-6 w-screen p-6">
+        <p className="font-serif font-bold mt-6 m-auto p-6">
           Embark on a journey of technological excellence with our curated
           selection of trusted brands, each a beacon of innovation and
           reliability. Apple stands at the forefront, offering unparalleled

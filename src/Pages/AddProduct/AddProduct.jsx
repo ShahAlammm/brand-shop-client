@@ -27,7 +27,7 @@ const AddProduct = () => {
 
     // send data to the server
     fetch(
-      "https://brand-shop-server-assignment-10-587c2cayb-shah-alams-projects.vercel.app/product",
+      "https://brand-shop-server-assignment-10-pnrue04ia-shah-alams-projects.vercel.app/product",
       {
         method: "POST",
         headers: {
@@ -49,11 +49,6 @@ const AddProduct = () => {
           form.reset();
         }
       });
-  };
-  const [rating, setRating] = useState();
-
-  const handleRatingChange = (event) => {
-    setRating(parseInt(event.target.value, 10));
   };
 
   return (
@@ -162,7 +157,6 @@ const AddProduct = () => {
                 className="w-1/12 h-10 text-xl"
                 type="number"
                 name="rating"
-                defaultValue={rating}
                 max={5}
                 min={0}
               />

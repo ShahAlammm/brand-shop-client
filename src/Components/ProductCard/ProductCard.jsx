@@ -16,7 +16,7 @@ const ProductCard = ({ product, products, setProducts }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://brand-shop-server-assignment-10-587c2cayb-shah-alams-projects.vercel.app/product/${_id}`,
+          `https://brand-shop-server-assignment-10-pnrue04ia-shah-alams-projects.vercel.app//product/${_id}`,
           {
             method: "DELETE",
           }
@@ -43,9 +43,9 @@ const ProductCard = ({ product, products, setProducts }) => {
 
   return (
     <div>
-      <div className="card card-side bg-base-200 shadow-xl h-72  min-w-full">
+      <div className="card card-side bg-base-200 shadow-xl lg:h-72  min-w-full">
         <figure className="">
-          <img src={photo} alt="Shoes" className="md:h-52 md:w-80" />
+          <img src={photo} alt="" className="p-3 md:w-80" />
         </figure>
         <div className="card-body">
           <div className="flex justify-between">

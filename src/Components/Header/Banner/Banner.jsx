@@ -11,7 +11,8 @@ const divStyle = {
   alignItems: "center",
   justifyContent: "center",
   backgroundSize: "cover",
-  height: "800px",
+  height: "1000px",
+  with: "1430px",
 };
 
 // const spanStyle = {
