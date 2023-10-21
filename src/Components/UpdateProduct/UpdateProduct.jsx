@@ -32,7 +32,7 @@ const UpdateProduct = () => {
 
     // send data to the server
     fetch(
-      `https://brand-shop-server-assignment-10-pnrue04ia-shah-alams-projects.vercel.app/product/${_id}`,
+      `https://brand-shop-server-assignment-10-ifvpeub1o-shah-alams-projects.vercel.app/product/${_id}`,
       {
         method: "PuT",
         headers: {

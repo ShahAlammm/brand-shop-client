@@ -42,7 +42,7 @@ const MyCart = () => {
                 )}
               </div>
             </div>
-            <div className="container m-auto gap-6  grid lg:grid-cols-2 md:grid-cols-1 mt-10">
+            <div className="container m-auto gap-6 p-4  grid xl:grid-cols-2 md:grid-cols-1 mt-10">
               {isShow
                 ? booking.map((item) => (
                     <AddedCard key={item.id} item={item}></AddedCard>

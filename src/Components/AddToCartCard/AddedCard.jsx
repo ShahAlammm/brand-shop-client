@@ -6,11 +6,11 @@ const AddedCard = ({item}) => {
 
   return (
     <div className="pt-20">
-      <div className="card card-side shadow-xl bg-base-200 h-64">
+      <div className="card card-side shadow-xl shadow-indigo-400 bg-base-200 h-64">
         <figure>
-          <img className="p-4 md:w-80" src={photo} alt="" />
+          <img className="p-4 w-40 md:w-80" src={photo} alt="" />
         </figure>
-        <div className="card-body">
+        <div className="card-body w-52">
           <h2 className="card-title font-bold text-2xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
             {name}
           </h2>

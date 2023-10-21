@@ -42,7 +42,7 @@ const Details = () => {
               </div>
             <div className="card-actions">
 
-              <button onClick={handleAddToCart} className="btn btn-primary">Add to cart</button>
+              <button onClick={handleAddToCart} className="btn  btn-active btn-secondary">Add to cart</button>
             </div>
           </div>
         </div>

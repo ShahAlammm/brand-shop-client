@@ -126,7 +126,7 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1 font-bold">{navLink}</ul>
       </div>
       <div className="navbar-end gap-3">
-        <p className="mt-2 font-serif hidden lg:contents text-black">
+        <p className="mt-2 font-serif hidden lg:contents">
           {user?.displayName}
         </p>
         <div className="text-3xl">

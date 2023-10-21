@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
-import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import image from "../../../../public/simpleBanner.json";
-const divStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundSize: "cover",
-  height: "800px",
-};
+import { Slide } from "react-slideshow-image";
 
 const SimpleBanner = ({ brandName }) => {
   const [slideImages, setSlideImages] = useState([]);
@@ -24,16 +17,13 @@ const SimpleBanner = ({ brandName }) => {
   return (
     <div>
       <div>
-        <div className="slide-container">
+        <div className="slide-container lg:pt-24">
           <Slide>
             {filteredProducts.map((slideImage, index) => (
               <div key={index}>
-                <div
-                  style={{
-                    ...divStyle,
-                    backgroundImage: `url(${slideImage.url})`,
-                  }}
-                ></div>
+                <div className="h-96 lg:h-[700px] justify-center items-center flex">
+                  <img className="w-full h-96 lg:h-[700px]" src={slideImage.url} alt="" />
+                </div>
               </div>
             ))}
           </Slide>

@@ -16,7 +16,7 @@ const Card = ({ brand }) => {
     <div>
       <Link to={`/product/${brandName}`}>
         <div
-          className="w-80 lg:w-[450px] m-auto mt-16 lg:mt-24 shadow-2xl shadow-slate-900 rounded-2xl"
+          className="w-80 lg:w-[450px] m-auto mt-16 lg:mt-24 shadow-2xl shadow-blue-400 rounded-2xl"
           data-aos="fade-up"
           data-aos-duration="2000"
         >
