@@ -31,16 +31,13 @@ const UpdateProduct = () => {
     };
 
     // send data to the server
-    fetch(
-      `https://brand-shop-server-assignment-10-97bkzvr6f-shah-alams-projects.vercel.app/product/${_id}`,
-      {
-        method: "PuT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateProduct),
-      }
-    )
+    fetch(`https://brand-shop-server-assignment-10.vercel.app/product/${_id}`, {
+      method: "PuT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

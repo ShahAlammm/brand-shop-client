@@ -26,16 +26,13 @@ const AddProduct = () => {
     };
 
     // send data to the server
-    fetch(
-      "https://brand-shop-server-assignment-10-97bkzvr6f-shah-alams-projects.vercel.app/product",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      }
-    )
+    fetch("https://brand-shop-server-assignment-10.vercel.app/product", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -66,6 +63,7 @@ const AddProduct = () => {
                 name="photo"
                 placeholder="Photo URL"
                 className="input input-bordered input-primary w-full"
+                required
               />
             </label>
           </div>
@@ -81,6 +79,7 @@ const AddProduct = () => {
                 name="name"
                 placeholder="Product Name"
                 className="input input-bordered input-primary w-full"
+                required
               />
             </label>
           </div>
@@ -91,6 +90,7 @@ const AddProduct = () => {
             <label>
               <select
                 name="brandName"
+                required
                 className="select select-bordered select-primary w-full"
               >
                 <option value="" disabled selected>
@@ -115,6 +115,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="type"
+                required
                 placeholder="Type Name"
                 className="input input-bordered input-primary w-full"
               />
@@ -128,6 +129,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="price"
+                required
                 placeholder="Product Price"
                 className="input input-bordered input-primary w-full"
               />
@@ -143,6 +145,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="description"
+                required
                 placeholder="Short Details"
                 className="input input-bordered input-primary w-full"
               />
@@ -157,6 +160,7 @@ const AddProduct = () => {
                 className="w-1/12 h-10 text-xl"
                 type="number"
                 name="rating"
+                required
                 max={5}
                 min={0}
               />

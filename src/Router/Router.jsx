@@ -23,9 +23,7 @@ const Router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () =>
-          fetch(
-            `https://brand-shop-server-assignment-10-97bkzvr6f-shah-alams-projects.vercel.app/users`
-          ),
+          fetch(`https://brand-shop-server-assignment-10.vercel.app/users`),
       },
       {
         path: "/addProduct",
@@ -54,14 +52,12 @@ const Router = createBrowserRouter([
       {
         path: "/product/:brandName",
         element: (
-          <PrivateRoute>
+
             <ViewDetails></ViewDetails>
-          </PrivateRoute>
+         
         ),
         loader: () =>
-          fetch(
-            "https://brand-shop-server-assignment-10-97bkzvr6f-shah-alams-projects.vercel.app/product"
-          ),
+          fetch("https://brand-shop-server-assignment-10.vercel.app/product"),
       },
       {
         path: "/updateProduct/:id",
@@ -72,7 +68,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://brand-shop-server-assignment-10-97bkzvr6f-shah-alams-projects.vercel.app/product/${params.id}`
+            `https://brand-shop-server-assignment-10.vercel.app/product/${params.id}`
           ),
       },
       {
@@ -84,7 +80,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://brand-shop-server-assignment-10-97bkzvr6f-shah-alams-projects.vercel.app/product/${params.id}`
+            `https://brand-shop-server-assignment-10.vercel.app/product/${params.id}`
           ),
       },
       {

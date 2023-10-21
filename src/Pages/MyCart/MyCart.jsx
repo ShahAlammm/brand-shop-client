@@ -4,23 +4,34 @@ import AddedCard from "../../Components/AddToCartCard/AddedCard";
 const MyCart = () => {
 
 
-  const [booking, setBooking] = useState([]);
+  const [addToCart, setAddToCard] = useState([]);
   const [noFound, setNoFound] = useState("");
   const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     const addToCard = JSON.parse(localStorage.getItem("addToCard"));
     if (addToCard) {
-      setBooking(addToCard);
+      setAddToCard(addToCard);
     } else {
       setNoFound("No Product Added !");
     }
   }, []);
 
+// For Remove All
   const handleRemove = () => {
     localStorage.clear();
-    setBooking([]);
+    setAddToCard([]);
     setNoFound("No Data Found !");
+  };
+
+//  For Single Product Remove
+  const handleDelete = (_id) => {
+    const updatedCart = addToCart.filter((item) => item._id !== _id);
+    localStorage.setItem("addToCard", JSON.stringify(updatedCart));
+    setAddToCard(updatedCart);
+    if (updatedCart.length === 0) {
+      setNoFound("No Data Found !");
+    }
   };
 
   return (
@@ -32,7 +43,7 @@ const MyCart = () => {
           <div>
             <div className="flex items-center justify-center">
               <div>
-                {booking.length > 0 && (
+                {addToCart.length > 0 && (
                   <button
                     onClick={handleRemove}
                     className="btn btn-success font-bold mx-auto"
@@ -44,17 +55,17 @@ const MyCart = () => {
             </div>
             <div className="container m-auto gap-6 p-4  grid xl:grid-cols-2 md:grid-cols-1 mt-10">
               {isShow
-                ? booking.map((item) => (
-                    <AddedCard key={item.id} item={item}></AddedCard>
+                ? addToCart.map((item) => (
+                    <AddedCard key={item.id} item={item} handleDelete={handleDelete}></AddedCard>
                   ))
-                : booking
+                : addToCart
                     .slice(0, 4)
                     .map((item) => (
-                      <AddedCard key={item.id} item={item}></AddedCard>
+                      <AddedCard key={item.id} item={item} handleDelete={handleDelete}></AddedCard>
                     ))}
             </div>
             <div className="flex items-center justify-center mt-8 mb-10">
-              {booking.length > 4 && (
+              {addToCart.length > 4 && (
                 <button
                   onClick={() => setIsShow(!isShow)}
                   className="btn btn-secondary font-bold mx-auto"

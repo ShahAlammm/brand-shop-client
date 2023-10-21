@@ -3,8 +3,6 @@ const About = () => {
     <div className="container m-auto p-8 pt-24  lg:pt-64 justify-center items-center text-lg xl:text-4xl">
       <div className="space-y-8">
         <h1>About Us :-</h1>
-
-        {/* Company Introduction */}
         <section>
           <h2>Our Story :</h2>
           <p>
@@ -13,22 +11,17 @@ const About = () => {
             shop founding story and mission.]
           </p>
         </section>
-
-        {/* Team Members */}
         <section>
           <h2>Meet the Team :</h2>
           <div className="">
             <ul>
-              <li>1.X</li>
-              <li>2.Y</li>
-              <li>3.Z</li>
+              <li>1.Md.Shujon</li>
+              <li>2.Jamal Khan</li>
+              <li>3.Bayazid</li>
             </ul>
             <div />
-            {/* Add more TeamMember components for each team member */}
           </div>
         </section>
-
-        {/* Values and Principles */}
         <section>
           <h2>Our Values :</h2>
           <p>
@@ -37,8 +30,6 @@ const About = () => {
             apart.]
           </p>
         </section>
-
-        {/* Achievements */}
         <section>
           <h2>Our Achievements :</h2>
           <p>
@@ -47,8 +38,6 @@ const About = () => {
             accomplishments.]
           </p>
         </section>
-
-        {/* Future Roadmap */}
         <section>
           <h2>Future Roadmap :</h2>
           <p>
@@ -57,8 +46,6 @@ const About = () => {
             improvements, or new initiatives.]
           </p>
         </section>
-
-        {/* Contact Information */}
         <section>
           <h2>Contact Us :</h2>
           <p>

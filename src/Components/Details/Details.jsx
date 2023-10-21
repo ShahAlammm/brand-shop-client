@@ -27,23 +27,28 @@ const Details = () => {
   };
 
   return (
-    <div className="h-screen container m-auto">
-      <div className="pt-24 lg:pt-32">
-        <div className="card w-1/3 bg-base-100 shadow-xl justify-center items-center m-auto">
-          <figure className="px-10 pt-10">
-            <img src={photo} alt="" className="rounded-xl" />
-          </figure>
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">{name}</h2>
-            <p>{description}</p>
-            <div className="text-xl font-bold flex gap-x-8">
-                <h1>Price: {price}$</h1>
-                <p>Rating: {rating}/5</p>
-              </div>
-            <div className="card-actions">
-
-              <button onClick={handleAddToCart} className="btn  btn-active btn-secondary">Add to cart</button>
+    <div>
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row">
+          <img
+            src={photo}
+            className="max-w-sm rounded-lg shadow-cyan-400  shadow-2xl"
+          />
+          <div>
+            <h1 className="text-5xl font-bold">{name}</h1>
+            <p className="py-6 text-xl">{description}</p>
+            <div className="font-bold flex gap-12 mb-8">
+              <p className="text-xl">
+                Price : <span className="text-red-500">{price}$</span>
+              </p>
+              <p className="text-xl">Rating : {rating}/5</p>
             </div>
+            <button
+              onClick={handleAddToCart}
+              className="btn  btn-active btn-secondary"
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
