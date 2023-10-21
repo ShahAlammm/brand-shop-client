@@ -53,7 +53,7 @@ const MyCart = () => {
                 )}
               </div>
             </div>
-            <div className="container m-auto gap-6 p-4  grid xl:grid-cols-2 md:grid-cols-1 mt-10">
+            <div className="container m-auto gap-6 p-2 grid xl:grid-cols-2 md:grid-cols-1">
               {isShow
                 ? addToCart.map((item) => (
                     <AddedCard key={item.id} item={item} handleDelete={handleDelete}></AddedCard>

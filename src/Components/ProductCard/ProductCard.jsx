@@ -18,11 +18,11 @@ const ProductCard = ({ product }) => {
               <h2 className="card-title">{name}</h2>
               <p className="font-bold">Brand Name: {brandName}</p>
               <p className="font-bold">Type: {type}</p>
-              <p className="font-bold">Price: {price}$</p>
+              <p className="font-bold">Price: <span className="text-red-500">{price}$</span></p>
             </div>
           </div>
           <div className="rating mt-1">
-            <p>Rating: {rating}/5</p>
+            <p className="font-bold">Rating: {rating}/5</p>
           </div>
           <div className="card-actions justify-end">
             <Link to={`/updateProduct/${_id}`}>
