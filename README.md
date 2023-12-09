@@ -143,6 +143,16 @@ Welcome to our React-based E-Commerce website that specializes in technology and
 28. **Data Validation:**
     - Validate user inputs to prevent potential security issues.
 
-# Brand-Shop
+## Uses Technology
+
+- **React**
+- **HTML5**
+- **Tailwind css**
+- **Vite**
+- **TenStack**
+- **MongoDB**
+- **JWT Token**
+- **Express**
+
 
 ## [ Live link](https://brash-muscle.surge.sh/)
